@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{4FF359E7-7E86-F3AB-4D03-5A2CAEE329D8}</ProjectGuid>
+    <ProjectGuid>{28890011-6B76-0C0F-9B64-6EBA00409E49}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -76,6 +76,7 @@
      <Compile Include="Assets\Scripts\Object\GeneratorScript.cs" />
      <Compile Include="Assets\Scripts\Object\NegativeScript.cs" />
      <Compile Include="Assets\Scripts\Object\PositiveScript.cs" />
+     <Compile Include="Assets\TestFire.cs" />
      <None Include="Assets\Shader\Billboard.shader" />
      <None Include="Assets\OVR\Moonlight\Shaders\OVRColorRampAlpha.shader" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
