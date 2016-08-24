@@ -15,8 +15,8 @@ public class ChildTrunk : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //transform.position = OVRcamera.transform.position + v3Offset;
-        //currentRotation = transform.rotation;
-        //currentRotation.set
-        //transform.rotation = Quaternion.Slerp(transform.rotation, OVRcamera.transform.rotation, RotationSpeed * Time.deltaTime);
+        currentRotation = transform.rotation;
+        //transform.rotation = Quaternion.Slerp(this.transform.rotation, OVRcamera.transform.rotation, RotationSpeed * Time.deltaTime);\
+        transform.rotation = OVRcamera.transform.rotation;
 	}
 }
