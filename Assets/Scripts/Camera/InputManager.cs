@@ -29,6 +29,7 @@ public class InputManager : MonoBehaviour {
 
         if(Physics.Raycast(ray, out hit, 10000))
         {
+            Debug.Log("LASER HIT");
             hit.collider.gameObject.GetComponent<PositiveScript>().Targeted();
         }
 	}
