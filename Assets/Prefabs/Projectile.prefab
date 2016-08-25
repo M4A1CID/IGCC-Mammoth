@@ -106,7 +106,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f4ba027ffb3e74b991a461e9acd626, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paint: {fileID: 1000013102107866, guid: 4339b3742e114674c80f6291faac4db8, type: 2}
+  paint: {fileID: 1000012160944614, guid: 4c8ca2313748e4044ae8b4cbe0873db0, type: 2}
+  canvasOffset: -1
+  paintOffset: -0.05
+  fowardRayDistance: 1
+  LifeTime: 20
 --- !u!135 &135000012930210730
 SphereCollider:
   m_ObjectHideFlags: 1
