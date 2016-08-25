@@ -63,7 +63,7 @@ public class TrunkControlled : MonoBehaviour {
         {
             ytranslation = 0.0f;
         }
-        newPosition.Set(0.0f, ytranslation, xtranslation);
+        newPosition.Set(-xtranslation, ytranslation, 0.0f);
 
         currentPosition = this.transform.localPosition + newPosition;
         this.transform.localPosition = currentPosition;

@@ -21,16 +21,17 @@ public class InputManager : MonoBehaviour {
 	
 	}
 	
+    /*
 	// Update is called once per frame
 	void LateUpdate () {       
-
+        //
         RaycastHit hit;
         Ray ray = new Ray(transform.position, transform.forward);
 
         if(Physics.Raycast(ray, out hit, 10000))
         {
-            Debug.Log("LASER HIT");
+
             hit.collider.gameObject.GetComponent<PositiveScript>().Targeted();
         }
-	}
+	}*/
 }
