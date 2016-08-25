@@ -5,20 +5,37 @@ public class TrunkControlled : MonoBehaviour {
     
     private Vector3 newPosition;
     private Vector3 currentPosition;
+    private float ytranslation;
+    private float xtranslation;
 
     public float Sensivity;
     public float MinMaxY;
     public float MinMaxX;
+
+    public GameObject Game_Settings;
+
 	// Use this for initialization
 	void Start () {
-	
+        Input.GetJoystickNames();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-        float ytranslation = Input.GetAxis("Vertical") * Sensivity;
-        float xtranslation = Input.GetAxis("Horizontal") * Sensivity;
+
+        if (Game_Settings.GetComponent<GameSettings>().JoystickInput)
+        {
+            Debug.Log("JOYSTICK Length: " + Input.GetJoystickNames().Length);
+            ytranslation = Input.GetAxis("Vertical") * Sensivity;
+            xtranslation = Input.GetAxis("Horizontal") * Sensivity;
+        }
+        else
+        {
+            Debug.Log("NO JOYSTICK");
+            ytranslation = Input.GetAxis("Mouse Y") * Sensivity;
+            xtranslation = Input.GetAxis("Mouse X") * Sensivity;
+        }
+        
 
         //Debug.Log(translation);
         //this.transform.position.Set(transform.position.x, transform.position.y + translation, transform.position.z);
