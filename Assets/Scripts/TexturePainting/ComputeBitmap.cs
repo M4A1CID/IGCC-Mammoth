@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ComputeBitmap {
 	private Texture2D ResultTexture;
-	public Texture2D BitmapsAddMix(Texture2D MainTexture, Texture2D SpriteTexture,float RayX,float RayY){
+	public Texture2D BitmapsAddMix(Texture2D MainTexture, Texture2D SpriteTexture,Color CustomSpriteColor,float RayX,float RayY){
 		var MainWidth = MainTexture.width;
 		var MainHeight = MainTexture.height;
 		var CenterSpriteX = Mathf.FloorToInt(MainWidth*RayX);
@@ -30,9 +30,19 @@ public class ComputeBitmap {
 					if(PointX<MainWidth){
 						var MainColInd=PointY*MainWidth+PointX;
 						var SpriteColInd=j*SpriteWidth+i;
-						ResultColor[MainColInd].r=MainColor[MainColInd].r+SpriteColor[SpriteColInd].r;
-						ResultColor[MainColInd].g=MainColor[MainColInd].g+SpriteColor[SpriteColInd].r;
-						ResultColor[MainColInd].b=MainColor[MainColInd].b+SpriteColor[SpriteColInd].b;
+
+                        //白 0.0f から 1.0f
+                        if (SpriteColor[SpriteColInd].r >= 1 && SpriteColor[SpriteColInd].g >= 1 && SpriteColor[SpriteColInd].b >=1)
+                        {
+                            SpriteColor[SpriteColInd].r = CustomSpriteColor.r;
+                            SpriteColor[SpriteColInd].g = CustomSpriteColor.g;
+                            SpriteColor[SpriteColInd].b = CustomSpriteColor.b;
+
+                            ResultColor[MainColInd].r = MainColor[MainColInd].r + SpriteColor[SpriteColInd].r;
+                            ResultColor[MainColInd].g = MainColor[MainColInd].g + SpriteColor[SpriteColInd].g;
+                            ResultColor[MainColInd].b = MainColor[MainColInd].b + SpriteColor[SpriteColInd].b;
+                        }
+						
 					}
 					else{
 						i=SpriteWidth;
