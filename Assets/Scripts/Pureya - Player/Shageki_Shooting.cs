@@ -5,7 +5,7 @@ public class Shageki_Shooting : MonoBehaviour {
 
 
     // bullet prefab
-    public GameObject projrctile;
+    public GameObject projectile;
 
     // 弾丸発射点
     public Transform hoshin;
@@ -26,14 +26,31 @@ public class Shageki_Shooting : MonoBehaviour {
         if (Input.GetButtonDown("Fire1"))
         {
             // 弾丸の複製
-            GameObject bullets = GameObject.Instantiate(projrctile) as GameObject;
-            
+            GameObject bullets = GameObject.Instantiate(projectile) as GameObject;
+
+			bullets.transform.position = hoshin.position;
+
+
+
+			Vector3 force;
+
+			force = hoshin.transform.forward * speed;
+
+			bullets.GetComponent<Rigidbody>().AddForce(force);
+
+			
+			/*
             Vector3 force;
-            force = this.transform.forward * -speed;
+            force = this.transform.forward * speed;
+			//force = hoshin.transform.forward * speed;
             // Rigidbodyに力を加えて発射
             bullets.GetComponent<Rigidbody>().AddForce(force);
             // 弾丸の位置を調整
-            bullets.transform.position = hoshin.position;
+			*/
+
+			print("Snout Position: " + hoshin.position + " Bullet Position: " + bullets.transform.position);
+
+            
         }
 
 
