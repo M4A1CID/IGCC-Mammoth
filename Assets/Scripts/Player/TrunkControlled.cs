@@ -17,11 +17,11 @@ public class TrunkControlled : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        float ytranslation = Input.GetAxis("Mouse Y") * Sensivity;
-        float xtranslation = Input.GetAxis("Mouse X") * Sensivity;
+        float ytranslation = Input.GetAxis("Vertical") * Sensivity;
+        float xtranslation = Input.GetAxis("Horizontal") * Sensivity;
+
         //Debug.Log(translation);
         //this.transform.position.Set(transform.position.x, transform.position.y + translation, transform.position.z);
-       
        
         // Handle out of Right
         if (xtranslation + transform.localPosition.z > MinMaxX)
