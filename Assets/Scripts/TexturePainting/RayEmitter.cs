@@ -30,7 +30,10 @@ public class RayEmitter : MonoBehaviour {
 
         if (Input.GetButtonDown("Fire1"))
         {
-			if (hit)
+            
+
+			//if (hit)
+            if (hitInfo.collider.gameObject.CompareTag("Canvas"))
                 RayXY = hitInfo.textureCoord;
             int randomSplat = Random.Range(0, SpriteTexture.Length-1);
 			MainTexture=computeBitmap.BitmapsAddMix (MainTexture, SpriteTexture[randomSplat],SpriteColor,RayXY.x,RayXY.y);

@@ -38,9 +38,9 @@ public class ComputeBitmap {
                             SpriteColor[SpriteColInd].g = CustomSpriteColor.g;
                             SpriteColor[SpriteColInd].b = CustomSpriteColor.b;
 
-                            ResultColor[MainColInd].r = MainColor[MainColInd].r + SpriteColor[SpriteColInd].r;
-                            ResultColor[MainColInd].g = MainColor[MainColInd].g + SpriteColor[SpriteColInd].g;
-                            ResultColor[MainColInd].b = MainColor[MainColInd].b + SpriteColor[SpriteColInd].b;
+                            ResultColor[MainColInd].r = SpriteColor[SpriteColInd].r;
+                            ResultColor[MainColInd].g = SpriteColor[SpriteColInd].g;
+                            ResultColor[MainColInd].b = SpriteColor[SpriteColInd].b;
                         }
 						
 					}
