@@ -1180,6 +1180,34 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 8a4ed3f8b62abb04bb21492ca1579173, type: 3}
   m_PrefabInternal: {fileID: 1779255615}
+--- !u!1 &278930309 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 691699a389325fb42b98cd31d8d47592, type: 3}
+  m_PrefabInternal: {fileID: 1430303439}
+--- !u!114 &278930313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 278930309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4527c90fcce43af48bd3546d124a77ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PaintColor: {r: 1, g: 1, b: 0, a: 0}
+--- !u!65 &278930314
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 278930309}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.53778815, y: 0.54228526, z: 0.5818267}
+  m_Center: {x: -0.0012755989, y: -0.00039072332, z: 0.29091334}
 --- !u!4 &284555665 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 8a4ed3f8b62abb04bb21492ca1579173, type: 3}
@@ -3110,6 +3138,34 @@ Transform:
   - {fileID: 1462523846}
   m_Father: {fileID: 2006462277}
   m_RootOrder: 0
+--- !u!1 &1012452822 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 691699a389325fb42b98cd31d8d47592, type: 3}
+  m_PrefabInternal: {fileID: 2082236944}
+--- !u!114 &1012452826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1012452822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4527c90fcce43af48bd3546d124a77ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PaintColor: {r: 1, g: 0, b: 0, a: 0}
+--- !u!65 &1012452827
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1012452822}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5377882, y: 0.5422853, z: 0.58182675}
+  m_Center: {x: -0.001275599, y: -0.00039072335, z: 0.29091337}
 --- !u!4 &1016321693 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: b246cb58c3bad6d4bb1fef684fb1f8e0, type: 3}
@@ -4297,35 +4353,35 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 691699a389325fb42b98cd31d8d47592, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -38.26438
+      value: -35.78
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 691699a389325fb42b98cd31d8d47592, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.230197
+      value: 11.23
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 691699a389325fb42b98cd31d8d47592, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -69.373985
+      value: -69.54
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 691699a389325fb42b98cd31d8d47592, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.13273102
+      value: 0.45615706
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 691699a389325fb42b98cd31d8d47592, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.69453764
+      value: -0.5402968
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 691699a389325fb42b98cd31d8d47592, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.6945376
+      value: -0.5402971
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 691699a389325fb42b98cd31d8d47592, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.13273115
+      value: -0.45615697
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 691699a389325fb42b98cd31d8d47592, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 691699a389325fb42b98cd31d8d47592, type: 3}
       propertyPath: m_LocalScale.x
@@ -4345,15 +4401,19 @@ Prefab:
       objectReference: {fileID: 2100000, guid: b324d63e04c7ce548a9bc9ffb6afef10, type: 2}
     - target: {fileID: 400000, guid: 691699a389325fb42b98cd31d8d47592, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -89.981
+      value: 270.01898
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 691699a389325fb42b98cd31d8d47592, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -28.810001
+      value: 99.40501
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 691699a389325fb42b98cd31d8d47592, type: 3}
       propertyPath: m_Name
-      value: pot (1)
+      value: Yellow Paint Can
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 691699a389325fb42b98cd31d8d47592, type: 3}
+      propertyPath: m_TagString
+      value: Paint Can
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 691699a389325fb42b98cd31d8d47592, type: 3}
@@ -5910,15 +5970,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 691699a389325fb42b98cd31d8d47592, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -34.028038
+      value: -37.55
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 691699a389325fb42b98cd31d8d47592, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.230197
+      value: 11.23
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 691699a389325fb42b98cd31d8d47592, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -62.205902
+      value: -61.19
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 691699a389325fb42b98cd31d8d47592, type: 3}
       propertyPath: m_LocalRotation.x
@@ -5963,6 +6023,14 @@ Prefab:
     - target: {fileID: 400000, guid: 691699a389325fb42b98cd31d8d47592, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -94.71001
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 691699a389325fb42b98cd31d8d47592, type: 3}
+      propertyPath: m_Name
+      value: Red Paint Can
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 691699a389325fb42b98cd31d8d47592, type: 3}
+      propertyPath: m_TagString
+      value: Paint Can
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 691699a389325fb42b98cd31d8d47592, type: 3}

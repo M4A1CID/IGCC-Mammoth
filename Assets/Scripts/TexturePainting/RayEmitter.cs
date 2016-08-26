@@ -47,6 +47,11 @@ public class RayEmitter : MonoBehaviour {
                SpriteTexture =  hitInfo.collider.gameObject.GetComponent<PaintSizeController>().GetSwitchSize();
             }
 
+            // If ray hits paint can
+            if (hitInfo.collider.gameObject.CompareTag("Paint Can"))
+            {
+                SpriteColor = hitInfo.collider.gameObject.GetComponent<PaintCan>().GetPaintBucketColor();
+            }
 
         }
     }

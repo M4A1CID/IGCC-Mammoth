@@ -9,6 +9,7 @@ TagManager:
   - Canvas
   - Paint
   - SizeChanger
+  - Paint Can
   layers:
   - Default
   - TransparentFX
