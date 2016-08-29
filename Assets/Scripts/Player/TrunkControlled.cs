@@ -28,13 +28,13 @@ public class TrunkControlled : MonoBehaviour {
 
         if (Game_Settings.GetComponent<GameSettings>().JoystickInput)
         {
-            Debug.Log("JOYSTICK Length: " + Input.GetJoystickNames().Length);
+            //Debug.Log("JOYSTICK Length: " + Input.GetJoystickNames().Length);
             ytranslation = Input.GetAxis("Vertical") * Sensivity;
             xtranslation = Input.GetAxis("Horizontal") * Sensivity;
         }
         else
         {
-            Debug.Log("NO JOYSTICK");
+            //Debug.Log("NO JOYSTICK");
             ytranslation = Input.GetAxis("Mouse Y") * Sensivity;
             xtranslation = Input.GetAxis("Mouse X") * Sensivity;
         }

@@ -9,6 +9,8 @@ public class RayEmitter : MonoBehaviour {
     public Color SpriteColor;
 	private ComputeBitmap computeBitmap=new ComputeBitmap();
 	public GameObject PlaneObj;
+    private int PaintAmount = 20;
+    private int PaintSize;
     
 
     public GameObject snout; //The source of the paint spray
@@ -27,18 +29,25 @@ public class RayEmitter : MonoBehaviour {
         bool hit = Physics.Raycast(snout.transform.position, directionalVector, out hitInfo, Mathf.Infinity); //Raycast to determine has the paint hit anything?
         Debug.DrawRay(snout.transform.position, directionalVector); //Draw the ray in the scene for testing
 
-
         if (Input.GetButtonDown("Fire1"))
         {
-
-
-            // If ray hits the canvas
+                // If ray hits the canvas
             if (hitInfo.collider.gameObject.CompareTag("Canvas"))
             {
-                RayXY = hitInfo.textureCoord;
-                int randomSplat = Random.Range(0, SpriteTexture.Length - 1);
-                MainTexture = computeBitmap.BitmapsAddMix(MainTexture, SpriteTexture[randomSplat], SpriteColor, RayXY.x, RayXY.y);
-                PlaneObj.transform.GetComponent<Renderer>().material.mainTexture = MainTexture as Texture;
+                // GetPaintSize
+                PaintSize = GameObject.Find("Paint Size Controller").GetComponent<PaintSizeController>().currentSize + 1;
+                // If there is enough paint
+                if (PaintAmount >= PaintSize)
+                {
+                    RayXY = hitInfo.textureCoord;
+                    int randomSplat = Random.Range(0, SpriteTexture.Length - 1);
+                    MainTexture = computeBitmap.BitmapsAddMix(MainTexture, SpriteTexture[randomSplat], SpriteColor, RayXY.x, RayXY.y);
+                    PlaneObj.transform.GetComponent<Renderer>().material.mainTexture = MainTexture as Texture;
+
+                    //SpendPaint
+                    PaintAmount -= PaintSize;
+                    Debug.Log("PaintAmount:" + PaintAmount);
+                }
             }
             
             // If ray hits Size changer
@@ -51,6 +60,7 @@ public class RayEmitter : MonoBehaviour {
             if (hitInfo.collider.gameObject.CompareTag("Paint Can"))
             {
                 SpriteColor = hitInfo.collider.gameObject.GetComponent<PaintCan>().GetPaintBucketColor();
+                PaintAmount = 20;
             }
 
         }

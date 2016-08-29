@@ -6032,6 +6032,10 @@ Prefab:
       propertyPath: m_TagString
       value: Paint Can
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 691699a389325fb42b98cd31d8d47592, type: 3}
+      propertyPath: m_MotionVectors
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 691699a389325fb42b98cd31d8d47592, type: 3}
   m_IsPrefabParent: 0
