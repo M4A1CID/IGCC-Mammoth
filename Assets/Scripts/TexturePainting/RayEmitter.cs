@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 
 public class RayEmitter : MonoBehaviour {
@@ -9,15 +10,20 @@ public class RayEmitter : MonoBehaviour {
     public Color SpriteColor;
 	private ComputeBitmap computeBitmap=new ComputeBitmap();
 	public GameObject PlaneObj;
+    public GameObject PaintController;
     private int PaintAmount = 20;
     private int PaintSize;
-    
+
+    private GameObject[] PaintBucketsString;
 
     public GameObject snout; //The source of the paint spray
     
+    
 	// Use this for initialization
 	void Start () {
-	
+        PaintBucketsString = new GameObject[2];
+        // Called once
+        PaintSize = PaintController.GetComponent<PaintSizeController>().currentSize + 1;
 	}
 	
 	// Update is called once per frame
@@ -31,37 +37,55 @@ public class RayEmitter : MonoBehaviour {
 
         if (Input.GetButtonDown("Fire1"))
         {
-                // If ray hits the canvas
-            if (hitInfo.collider.gameObject.CompareTag("Canvas"))
+            if (hitInfo.collider != null) // Handle No Collider
             {
-                // GetPaintSize
-                PaintSize = GameObject.Find("Paint Size Controller").GetComponent<PaintSizeController>().currentSize + 1;
-                // If there is enough paint
-                if (PaintAmount >= PaintSize)
+                // If ray hits the canvas
+                if (hitInfo.collider.gameObject.CompareTag("Canvas"))
                 {
-                    RayXY = hitInfo.textureCoord;
-                    int randomSplat = Random.Range(0, SpriteTexture.Length - 1);
-                    MainTexture = computeBitmap.BitmapsAddMix(MainTexture, SpriteTexture[randomSplat], SpriteColor, RayXY.x, RayXY.y);
-                    PlaneObj.transform.GetComponent<Renderer>().material.mainTexture = MainTexture as Texture;
+                    // If there is enough paint
+                    if (PaintAmount >= PaintSize)
+                    {
+                        RayXY = hitInfo.textureCoord;
+                        int randomSplat = UnityEngine.Random.Range(0, SpriteTexture.Length - 1);
+                        MainTexture = computeBitmap.BitmapsAddMix(MainTexture, SpriteTexture[randomSplat], SpriteColor, RayXY.x, RayXY.y);
+                        PlaneObj.transform.GetComponent<Renderer>().material.mainTexture = MainTexture as Texture;
 
-                    //SpendPaint
-                    PaintAmount -= PaintSize;
-                    Debug.Log("PaintAmount:" + PaintAmount);
+                        //SpendPaint
+                        Debug.Log("PaintSize:" + PaintSize);
+                        PaintAmount -= PaintSize;
+                        Debug.Log("PaintAmount:" + PaintAmount);
+                    }
+                }
+
+                // If ray hits Size changer
+                else if (hitInfo.collider.gameObject.CompareTag("SizeChanger"))
+                {
+                    SpriteTexture = hitInfo.collider.gameObject.GetComponent<PaintSizeController>().GetSwitchSize();
+
+                    // Call once
+                    PaintSize = PaintController.GetComponent<PaintSizeController>().currentSize + 1;
+                }
+
+                // If ray hits paint can
+                else if (hitInfo.collider.gameObject.CompareTag("Paint Can"))
+                {
+                    Debug.Log("Getting Paint from: " + hitInfo.collider.gameObject.name);
+                    if (PaintBucketsString[0] == null) // If first slot is empty
+                    {
+                        PaintBucketsString[0] = hitInfo.collider.gameObject;
+                        SpriteColor = this.gameObject.GetComponent<PaintMixer>().AddTwoColor(PaintBucketsString[0], null);
+                    }
+                    else
+                    {
+                        PaintBucketsString[1] = PaintBucketsString[0];// Push over old color to 2nd
+                        PaintBucketsString[0] = hitInfo.collider.gameObject; // Get new 1st
+                        SpriteColor = this.gameObject.GetComponent<PaintMixer>().AddTwoColor(PaintBucketsString[0], PaintBucketsString[1]);
+                    }
+                    // Change Trunk Color emission map
+                    PaintAmount = 20;
                 }
             }
-            
-            // If ray hits Size changer
-            if (hitInfo.collider.gameObject.CompareTag("SizeChanger"))
-            {
-               SpriteTexture =  hitInfo.collider.gameObject.GetComponent<PaintSizeController>().GetSwitchSize();
-            }
-
-            // If ray hits paint can
-            if (hitInfo.collider.gameObject.CompareTag("Paint Can"))
-            {
-                SpriteColor = hitInfo.collider.gameObject.GetComponent<PaintCan>().GetPaintBucketColor();
-                PaintAmount = 20;
-            }
+           
 
         }
     }

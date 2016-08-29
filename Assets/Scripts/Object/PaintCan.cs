@@ -19,7 +19,7 @@ public class PaintCan : MonoBehaviour {
 
     public Color GetPaintBucketColor()
     {
-        Debug.Log("Getting Paint from: " + gameObject.name);
+        
         return PaintColor;
     }
 }
