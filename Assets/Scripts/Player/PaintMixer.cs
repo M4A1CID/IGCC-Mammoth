@@ -3,13 +3,15 @@ using System.Collections;
 
 public class PaintMixer : MonoBehaviour {
 
-    public GameObject TrunkMaterialEmission;
-    public Texture2D RED;
-    public Texture2D BLUE;
-    public Texture2D YELLOW;
-    public Texture2D GREEN;
-    public Texture2D PURPLE;
-    public Texture2D ORANGE;
+    public GameObject LeftTusk;
+    public GameObject RightTusk;
+    public Material RED;
+    public Material BLUE;
+    public Material YELLOW;
+    public Material GREEN;
+    public Material PURPLE;
+    public Material ORANGE;
+    public Material DEFAULT_MAT;
 	// Use this for initialization
 	void Start () {
 	
@@ -29,7 +31,8 @@ public class PaintMixer : MonoBehaviour {
             // If Single Color only [R] or [Y] or [B]
             if (PaintBucket_2 == null || PaintBucket_2.GetComponent<PaintCan>().ColorName == "RED")
             {
-                TrunkMaterialEmission.gameObject.GetComponent<Material>().SetTexture("_DetailAlbedoMap", RED);
+                LeftTusk.gameObject.GetComponent<Renderer>().material = RED;
+                RightTusk.gameObject.GetComponent<Renderer>().material = RED;
                 return new Color(1.0f, 0.0f, 0.0f);
             }
             else
@@ -37,13 +40,15 @@ public class PaintMixer : MonoBehaviour {
                 // Mix with Yellow
                 if (PaintBucket_2.GetComponent<PaintCan>().ColorName == "YELLOW")
                 {
-                    TrunkMaterialEmission.gameObject.GetComponent<Material>().SetTexture("_DetailAlbedoMap", ORANGE);
+                    LeftTusk.gameObject.GetComponent<Renderer>().material = ORANGE;
+                    RightTusk.gameObject.GetComponent<Renderer>().material = ORANGE;
                     return new Color(1.0f, 0.647f, 0.0f);// Orange R 255, G 165, B 0
                 }
                 // Mix with Blue
                 if (PaintBucket_2.GetComponent<PaintCan>().ColorName == "BLUE")
                 {
-                    TrunkMaterialEmission.gameObject.GetComponent<Material>().SetTexture("_DetailAlbedoMap", PURPLE);
+                    LeftTusk.gameObject.GetComponent<Renderer>().material = PURPLE;
+                    RightTusk.gameObject.GetComponent<Renderer>().material = PURPLE;
                     return new Color(0.50196f, 0.0f, 0.50196f); // Purple R 128, G 0, B 128
                 }
             }
@@ -56,7 +61,8 @@ public class PaintMixer : MonoBehaviour {
             // If Single Color only [R] or [Y] or [B]
             if (PaintBucket_2 == null || PaintBucket_2.GetComponent<PaintCan>().ColorName == "YELLOW")
             {
-                TrunkMaterialEmission.gameObject.GetComponent<Material>().SetTexture("_DetailAlbedoMap", YELLOW);
+                LeftTusk.gameObject.GetComponent<Renderer>().material = YELLOW;
+                RightTusk.gameObject.GetComponent<Renderer>().material = YELLOW;
                 return new Color(1.0f, 1.0f, 0.0f);
             }
             else
@@ -66,7 +72,8 @@ public class PaintMixer : MonoBehaviour {
                 if (PaintBucket_2.GetComponent<PaintCan>().ColorName == "RED")
                 {
 
-                    TrunkMaterialEmission.gameObject.GetComponent<Material>().SetTexture("_DetailAlbedoMap", ORANGE);
+                    LeftTusk.gameObject.GetComponent<Renderer>().material = ORANGE;
+                    RightTusk.gameObject.GetComponent<Renderer>().material = ORANGE;
                     return new Color(1.0f, 0.647f, 0.0f);// Orange R 255, G 165, B 0
                 }
 
@@ -74,7 +81,8 @@ public class PaintMixer : MonoBehaviour {
                 if (PaintBucket_2.GetComponent<PaintCan>().ColorName == "BLUE")
                 {
 
-                    TrunkMaterialEmission.gameObject.GetComponent<Material>().SetTexture("_DetailAlbedoMap", GREEN);
+                    LeftTusk.gameObject.GetComponent<Renderer>().material = GREEN;
+                    RightTusk.gameObject.GetComponent<Renderer>().material = GREEN;
                     return new Color(0.0f, 0.50196f, 0.0f);// Green R 0, G 128, B 0
                 }
             }
@@ -87,7 +95,8 @@ public class PaintMixer : MonoBehaviour {
             // If Single Color only [R] or [Y] or [B]
             if (PaintBucket_2 == null || PaintBucket_2.GetComponent<PaintCan>().ColorName == "BLUE")
             {
-                TrunkMaterialEmission.gameObject.GetComponent<Material>().SetTexture("_DetailAlbedoMap", BLUE);
+                LeftTusk.gameObject.GetComponent<Renderer>().material = BLUE;
+                RightTusk.gameObject.GetComponent<Renderer>().material = BLUE;
                 return new Color(0.0f, 0.0f, 1.0f);
             }
             else
@@ -95,20 +104,23 @@ public class PaintMixer : MonoBehaviour {
                 // Mix with Yellow
                 if (PaintBucket_2.GetComponent<PaintCan>().ColorName == "YELLOW")
                 {
-                    TrunkMaterialEmission.gameObject.GetComponent<Material>().SetTexture("_DetailAlbedoMap", GREEN);
+                    LeftTusk.gameObject.GetComponent<Renderer>().material = GREEN;
+                    RightTusk.gameObject.GetComponent<Renderer>().material = GREEN;
                     return new Color(0.0f, 0.50196f, 0.0f);// Green R 0, G 128, B 0
                 }
                 // Mix with Red
                 if (PaintBucket_2.GetComponent<PaintCan>().ColorName == "RED")
                 {
-                    TrunkMaterialEmission.gameObject.GetComponent<Material>().SetTexture("_DetailAlbedoMap", PURPLE);
+                    LeftTusk.gameObject.GetComponent<Renderer>().material = PURPLE;
+                    RightTusk.gameObject.GetComponent<Renderer>().material = PURPLE;
                     return new Color(0.50196f, 0.0f, 0.50196f); // Purple R 128, G 0, B 128
                 }
             }
           
         }
 
-        
+        LeftTusk.gameObject.GetComponent<Renderer>().material = DEFAULT_MAT;
+        RightTusk.gameObject.GetComponent<Renderer>().material = DEFAULT_MAT;
         return Color.black;
     }
 
