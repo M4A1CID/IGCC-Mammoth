@@ -1,0 +1,23 @@
+newmtl lambert6SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd trunkdiffuse.tga
+map_Ka trunk2b_occlusion.tga
+bump trunk2b_normals.tga -bm 1.296296
+Ni 1.00
+newmtl lambert7SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.45 0.34 0.34
+Tf 1.00 1.00 1.00
+map_Kd mammothbaseUVdiffuse.tga
+Ni 1.00
+newmtl pasted__lambert7SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.45 0.34 0.34
+Tf 1.00 1.00 1.00
+map_Kd mammothbaseUVdiffuse.tga
+Ni 1.00
