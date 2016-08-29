@@ -4,11 +4,12 @@ using System.Collections;
 public class PaintCan : MonoBehaviour {
 
     public Color PaintColor;
-
+    public string ColorName;
 
 	// Use this for initialization
 	void Start () {
-	
+        // Convert to Uppercase
+        ColorName = ColorName.ToUpper();
 	}
 	
 	// Update is called once per frame
@@ -18,7 +19,7 @@ public class PaintCan : MonoBehaviour {
 
     public Color GetPaintBucketColor()
     {
-        Debug.Log("Getting Paint from: " + gameObject.name);
+        
         return PaintColor;
     }
 }
