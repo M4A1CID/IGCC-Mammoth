@@ -10,6 +10,7 @@ TagManager:
   - Paint
   - SizeChanger
   - Paint Can
+  - FinishFrame
   layers:
   - Default
   - TransparentFX

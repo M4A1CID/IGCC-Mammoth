@@ -117,6 +117,11 @@ public class RayEmitter : MonoBehaviour {
                     // PlayInhaleSound
                     MammothInhale.PlayOneShot(MammothInhale.clip);
                 }
+
+                else if (hitInfo.collider.gameObject.CompareTag("FinishFrame"))
+                {
+                    hitInfo.collider.gameObject.GetComponent<ChangePicture>().GetNewPainting();
+                }
             }
            
 
