@@ -28,6 +28,7 @@ namespace UnityStandardAssets.ImageEffects
         public float edgeThresholdMin = 0.05f;
         public float edgeThreshold = 0.2f;
         public float edgeSharpness = 4.0f;
+        public GameObject GameSettings;
 
         public bool dlaaSharp = false;
 
@@ -107,6 +108,8 @@ namespace UnityStandardAssets.ImageEffects
 
         public void OnRenderImage(RenderTexture source, RenderTexture destination)
         {
+            
+
             if (CheckResources() == false)
             {
                 Graphics.Blit(source, destination);
