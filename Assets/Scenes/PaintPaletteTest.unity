@@ -1138,6 +1138,46 @@ Prefab:
       propertyPath: ParticleEmitter
       value: 
       objectReference: {fileID: 628603949}
+    - target: {fileID: 4000013996411872, guid: f0795e5384fcdac42940ba1e790c3088, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013996411872, guid: f0795e5384fcdac42940ba1e790c3088, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.1149
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011146411692, guid: f0795e5384fcdac42940ba1e790c3088, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011146411692, guid: f0795e5384fcdac42940ba1e790c3088, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.1149
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010459638090, guid: f0795e5384fcdac42940ba1e790c3088, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010459638090, guid: f0795e5384fcdac42940ba1e790c3088, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.1149
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013418956478, guid: f0795e5384fcdac42940ba1e790c3088, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013418956478, guid: f0795e5384fcdac42940ba1e790c3088, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.1149
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012497140060, guid: f0795e5384fcdac42940ba1e790c3088, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012497140060, guid: f0795e5384fcdac42940ba1e790c3088, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.1149
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f0795e5384fcdac42940ba1e790c3088, type: 2}
   m_IsPrefabParent: 0
@@ -1639,7 +1679,7 @@ ParticleSystem:
       minMaxState: 0
     randomizeRotationDirection: 1
     gravityModifier: 0.5
-    maxNumParticles: 2000
+    maxNumParticles: 10
     size3D: 0
     rotation3D: 0
   ShapeModule:
