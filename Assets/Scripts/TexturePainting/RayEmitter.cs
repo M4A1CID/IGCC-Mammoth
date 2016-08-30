@@ -20,6 +20,9 @@ public class RayEmitter : MonoBehaviour {
     private int PaintSize;
     private float Last_Fired;
 
+    private AudioSource MammothExhale;
+    private AudioSource MammothInhale;
+
     private GameObject[] PaintBucketsString;
 
     public GameObject snout; //The source of the paint spray
@@ -32,6 +35,9 @@ public class RayEmitter : MonoBehaviour {
         PaintSize = PaintController.GetComponent<PaintSizeController>().currentSize + 1;
 
         Last_Fired = 0.0f;
+
+        MammothExhale = GetComponent<AudioSource>();
+        MammothInhale = GetComponent<AudioSource>();
 
         
 	}
@@ -68,8 +74,6 @@ public class RayEmitter : MonoBehaviour {
                         MainTexture = computeBitmap.BitmapsAddMix(PlaneTexture, SpriteTexture[randomSplat], SpriteColor, RayXY.x, RayXY.y);
                         PlaneObj.transform.GetComponent<Renderer>().material.mainTexture = MainTexture as Texture;
 
-
-
                         //SpendPaint
                         Debug.Log("PaintSize:" + PaintSize);
                         PaintAmount -= PaintSize;
@@ -77,6 +81,9 @@ public class RayEmitter : MonoBehaviour {
 
                         // Shoot particles
                         ParticleEmitter.GetComponent<ParticleSystem>().Play();
+
+                        // PlayExhaleSound
+                        MammothExhale.PlayOneShot(MammothExhale.clip);
                     }
                 }
 
@@ -106,6 +113,9 @@ public class RayEmitter : MonoBehaviour {
                     }
                     // Change Trunk Color emission map
                     PaintAmount = 20;
+
+                    // PlayInhaleSound
+                    MammothInhale.PlayOneShot(MammothInhale.clip);
                 }
             }
            
