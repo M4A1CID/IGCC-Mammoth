@@ -5,10 +5,12 @@ using System.Collections;
 public class RayEmitter : MonoBehaviour {
 	private RaycastHit rayHit;
 	public static Vector2 RayXY;
-	public Texture2D MainTexture;
+    
+	private Texture2D MainTexture;
+    private Texture2D PlaneTexture;
 	public Texture2D[] SpriteTexture;
     public Color SpriteColor;
-	private ComputeBitmap computeBitmap=new ComputeBitmap();
+    private ComputeBitmap computeBitmap = new ComputeBitmap();
 	public GameObject PlaneObj;
     public GameObject PaintController;
     public GameObject ParticleEmitter;
@@ -30,6 +32,8 @@ public class RayEmitter : MonoBehaviour {
         PaintSize = PaintController.GetComponent<PaintSizeController>().currentSize + 1;
 
         Last_Fired = 0.0f;
+
+        
 	}
 	
 	// Update is called once per frame
@@ -60,7 +64,8 @@ public class RayEmitter : MonoBehaviour {
                     {
                         RayXY = hitInfo.textureCoord;
                         int randomSplat = UnityEngine.Random.Range(0, SpriteTexture.Length - 1);
-                        MainTexture = computeBitmap.BitmapsAddMix(MainTexture, SpriteTexture[randomSplat], SpriteColor, RayXY.x, RayXY.y);
+                        PlaneTexture = PlaneObj.transform.GetComponent<Renderer>().material.mainTexture as Texture2D;
+                        MainTexture = computeBitmap.BitmapsAddMix(PlaneTexture, SpriteTexture[randomSplat], SpriteColor, RayXY.x, RayXY.y);
                         PlaneObj.transform.GetComponent<Renderer>().material.mainTexture = MainTexture as Texture;
 
 
