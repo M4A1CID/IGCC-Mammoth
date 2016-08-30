@@ -12,6 +12,16 @@ public class PaintMixer : MonoBehaviour {
     public Material PURPLE;
     public Material ORANGE;
     public Material DEFAULT_MAT;
+
+    public GameObject ParticleSystem;
+    public Material P_RED;
+    public Material P_BLUE;
+    public Material P_YELLOW;
+    public Material P_GREEN;
+    public Material P_PURPLE;
+    public Material P_ORANGE;
+    public Material P_DEFAULT_MAT;
+    
 	// Use this for initialization
 	void Start () {
 	
@@ -33,6 +43,7 @@ public class PaintMixer : MonoBehaviour {
             {
                 LeftTusk.gameObject.GetComponent<Renderer>().material = RED;
                 RightTusk.gameObject.GetComponent<Renderer>().material = RED;
+                ParticleSystem.gameObject.GetComponent<ParticleSystemRenderer>().material = P_RED;
                 return new Color(1.0f, 0.0f, 0.0f);
             }
             else
@@ -42,6 +53,7 @@ public class PaintMixer : MonoBehaviour {
                 {
                     LeftTusk.gameObject.GetComponent<Renderer>().material = ORANGE;
                     RightTusk.gameObject.GetComponent<Renderer>().material = ORANGE;
+                    ParticleSystem.gameObject.GetComponent<ParticleSystemRenderer>().material = P_ORANGE;
                     return new Color(1.0f, 0.647f, 0.0f);// Orange R 255, G 165, B 0
                 }
                 // Mix with Blue
@@ -49,6 +61,7 @@ public class PaintMixer : MonoBehaviour {
                 {
                     LeftTusk.gameObject.GetComponent<Renderer>().material = PURPLE;
                     RightTusk.gameObject.GetComponent<Renderer>().material = PURPLE;
+                    ParticleSystem.gameObject.GetComponent<ParticleSystemRenderer>().material = P_BLUE;
                     return new Color(0.50196f, 0.0f, 0.50196f); // Purple R 128, G 0, B 128
                 }
             }
@@ -63,6 +76,7 @@ public class PaintMixer : MonoBehaviour {
             {
                 LeftTusk.gameObject.GetComponent<Renderer>().material = YELLOW;
                 RightTusk.gameObject.GetComponent<Renderer>().material = YELLOW;
+                ParticleSystem.gameObject.GetComponent<ParticleSystemRenderer>().material = P_YELLOW;
                 return new Color(1.0f, 1.0f, 0.0f);
             }
             else
@@ -74,6 +88,7 @@ public class PaintMixer : MonoBehaviour {
 
                     LeftTusk.gameObject.GetComponent<Renderer>().material = ORANGE;
                     RightTusk.gameObject.GetComponent<Renderer>().material = ORANGE;
+                    ParticleSystem.gameObject.GetComponent<ParticleSystemRenderer>().material = P_ORANGE;
                     return new Color(1.0f, 0.647f, 0.0f);// Orange R 255, G 165, B 0
                 }
 
@@ -83,6 +98,7 @@ public class PaintMixer : MonoBehaviour {
 
                     LeftTusk.gameObject.GetComponent<Renderer>().material = GREEN;
                     RightTusk.gameObject.GetComponent<Renderer>().material = GREEN;
+                    ParticleSystem.gameObject.GetComponent<ParticleSystemRenderer>().material = P_GREEN;
                     return new Color(0.0f, 0.50196f, 0.0f);// Green R 0, G 128, B 0
                 }
             }
@@ -97,6 +113,7 @@ public class PaintMixer : MonoBehaviour {
             {
                 LeftTusk.gameObject.GetComponent<Renderer>().material = BLUE;
                 RightTusk.gameObject.GetComponent<Renderer>().material = BLUE;
+                ParticleSystem.gameObject.GetComponent<ParticleSystemRenderer>().material = P_BLUE;
                 return new Color(0.0f, 0.0f, 1.0f);
             }
             else
@@ -106,6 +123,7 @@ public class PaintMixer : MonoBehaviour {
                 {
                     LeftTusk.gameObject.GetComponent<Renderer>().material = GREEN;
                     RightTusk.gameObject.GetComponent<Renderer>().material = GREEN;
+                    ParticleSystem.gameObject.GetComponent<ParticleSystemRenderer>().material = P_GREEN;
                     return new Color(0.0f, 0.50196f, 0.0f);// Green R 0, G 128, B 0
                 }
                 // Mix with Red
@@ -113,6 +131,7 @@ public class PaintMixer : MonoBehaviour {
                 {
                     LeftTusk.gameObject.GetComponent<Renderer>().material = PURPLE;
                     RightTusk.gameObject.GetComponent<Renderer>().material = PURPLE;
+                    ParticleSystem.gameObject.GetComponent<ParticleSystemRenderer>().material = P_PURPLE;
                     return new Color(0.50196f, 0.0f, 0.50196f); // Purple R 128, G 0, B 128
                 }
             }
@@ -121,6 +140,7 @@ public class PaintMixer : MonoBehaviour {
 
         LeftTusk.gameObject.GetComponent<Renderer>().material = DEFAULT_MAT;
         RightTusk.gameObject.GetComponent<Renderer>().material = DEFAULT_MAT;
+        ParticleSystem.gameObject.GetComponent<ParticleSystemRenderer>().material = P_DEFAULT_MAT;
         return Color.black;
     }
 
