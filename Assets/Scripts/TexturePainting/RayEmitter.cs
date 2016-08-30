@@ -96,8 +96,12 @@ public class RayEmitter : MonoBehaviour {
                     PaintSize = PaintController.GetComponent<PaintSizeController>().currentSize + 1;
                 }
 
+               
+            }
+           if(Input.GetButtonDown("Fire1"))
+           {
                 // If ray hits paint can
-                else if (hitInfo.collider.gameObject.CompareTag("Paint Can"))
+                if (hitInfo.collider.gameObject.CompareTag("Paint Can"))
                 {
                     Debug.Log("Getting Paint from: " + hitInfo.collider.gameObject.name);
                     if (PaintBucketsString[0] == null) // If first slot is empty
@@ -122,8 +126,7 @@ public class RayEmitter : MonoBehaviour {
                 {
                     hitInfo.collider.gameObject.GetComponent<ChangePicture>().GetNewPainting();
                 }
-            }
-           
+           }
 
         }
     }
