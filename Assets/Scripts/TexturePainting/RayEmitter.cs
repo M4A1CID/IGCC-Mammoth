@@ -11,8 +11,12 @@ public class RayEmitter : MonoBehaviour {
 	private ComputeBitmap computeBitmap=new ComputeBitmap();
 	public GameObject PlaneObj;
     public GameObject PaintController;
+    public GameObject ParticleEmitter;
+
+
     private int PaintAmount = 20;
     private int PaintSize;
+    private float Last_Fired;
 
     private GameObject[] PaintBucketsString;
 
@@ -24,10 +28,18 @@ public class RayEmitter : MonoBehaviour {
         PaintBucketsString = new GameObject[2];
         // Called once
         PaintSize = PaintController.GetComponent<PaintSizeController>().currentSize + 1;
+
+        Last_Fired = 0.0f;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+        if(Last_Fired <= 0.1f)
+        {
+            Last_Fired += Time.deltaTime;
+        }
+
 
         //Raycast to paint targets
         RaycastHit hitInfo;
@@ -35,8 +47,9 @@ public class RayEmitter : MonoBehaviour {
         bool hit = Physics.Raycast(snout.transform.position, directionalVector, out hitInfo, Mathf.Infinity); //Raycast to determine has the paint hit anything?
         Debug.DrawRay(snout.transform.position, directionalVector); //Draw the ray in the scene for testing
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButton("Fire1") && Last_Fired > 0.1f)
         {
+            Last_Fired = 0.0f; // Reset last fired
             if (hitInfo.collider != null) // Handle No Collider
             {
                 // If ray hits the canvas
@@ -50,10 +63,15 @@ public class RayEmitter : MonoBehaviour {
                         MainTexture = computeBitmap.BitmapsAddMix(MainTexture, SpriteTexture[randomSplat], SpriteColor, RayXY.x, RayXY.y);
                         PlaneObj.transform.GetComponent<Renderer>().material.mainTexture = MainTexture as Texture;
 
+
+
                         //SpendPaint
                         Debug.Log("PaintSize:" + PaintSize);
                         PaintAmount -= PaintSize;
                         Debug.Log("PaintAmount:" + PaintAmount);
+
+                        // Shoot particles
+                        ParticleEmitter.GetComponent<ParticleSystem>().Play();
                     }
                 }
 

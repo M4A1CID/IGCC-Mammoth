@@ -7,9 +7,9 @@ public class PaintSizeController : MonoBehaviour {
 
 
     public Texture2D[] Splat;
-    public int Size;
-    
+
     // 0 for S, 1 for M, 2 for L
+    public int Size;
     public int currentSize;
 
 	// Use this for initialization
@@ -23,9 +23,9 @@ public class PaintSizeController : MonoBehaviour {
 
     public Texture2D[] GetSwitchSize()
     {
-        //currentSize += 1;
+        //Get Size
         currentSize = Size;
-
+        Debug.Log("currentSize:" + currentSize);
         return Splat;
     }
 
