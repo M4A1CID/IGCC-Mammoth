@@ -7,7 +7,7 @@ public class ChangePicture : MonoBehaviour {
     public GameObject PaintingModel;
 
     public Texture2D[] PaintByNumTexture;
-    public Mesh[] Models;
+    public GameObject[] Models;
 
     private int Prev;
 
@@ -33,6 +33,8 @@ public class ChangePicture : MonoBehaviour {
             if (rand != Prev)// If it's not the same painting as last time
             {
                 PaintableCanvas.GetComponent<Renderer>().material.mainTexture = PaintByNumTexture[rand];
+                PaintingModel.GetComponent<MeshFilter>().mesh = Models[rand].GetComponent<MeshFilter>().sharedMesh;
+                PaintingModel.GetComponent<Renderer>().material = Models[rand].GetComponent<Renderer>().sharedMaterial;
                 Prev = rand;
                 changed = true;
             }
